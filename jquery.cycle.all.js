@@ -48,6 +48,7 @@ $.fn.cycle = function(options, arg2) {
 			});
 			return this;
 		}
+		// is your DOM ready?  http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 		log('terminating; zero elements found by selector' + ($.isReady ? '' : ' (DOM not ready)'));
 		return this;
 	}
@@ -359,7 +360,7 @@ function buildOptions($cont, $slides, els, options, o) {
 		
 	// stretch container
 	var reshape = (opts.containerResize || opts.containerResizeHeight) && $cont.innerHeight() < 1;
-	if (reshape) {
+	if (reshape) { // do this only if container has no size http://tinyurl.com/da2oa9
 		var maxw = 0, maxh = 0;
 		for(var j=0; j < els.length; j++) {
 			var $e = $(els[j]), e = $e[0], w = $e.outerWidth(), h = $e.outerHeight();
